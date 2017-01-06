@@ -54,6 +54,7 @@ alert(name + ' is a ' + age + ' year old ' + job + '. Is he married? ' + isMarri
 */
 
 //Lecture: operators
+/*
 var now = 2017;
 var birthYear = 2017 - 26;
 birthYear = now - 26 * 2;
@@ -78,3 +79,40 @@ console.log(ageJohn);
 //same as ageMark = ageMark * 2;
 ageMark *= 2;
 console.log(ageMark);
+*/
+
+//Lecture: if/else statements
+
+var name = 'John';
+var age = 26;
+var isMarried = 'no';
+
+if (isMarried === 'yes') {
+//if(false)
+  console.log(name + ' married!');
+} else {
+  console.log(name + ' will hopefully marry soon :)');
+}
+
+//isMarried = false;
+isMarried = false;
+
+/*
+if (isMarried) {
+  console.log('YES!');
+} else {
+  console.log('NO');
+}
+*/
+
+//We don't necessarily need the else
+if (isMarried) {
+  console.log('YES!');
+}
+
+//== does type coercion, and the === does not
+//=== check both value and data type, but == only checks value
+//=== is the more advised comparison operator
+if (23 === "23") {
+  console.log('Something to print...');
+}
