@@ -22,6 +22,7 @@ console.log(fullAge);
   //Null: Also means 'non-existent'.
 
 //Lecture: variables 2
+/*
 var name = 'John';
 var age = 26;
 
@@ -50,3 +51,30 @@ var lastName = prompt('What is the last name?')
 console.log(lastName);
 
 alert(name + ' is a ' + age + ' year old ' + job + '. Is he married? ' + isMarried + '.');
+*/
+
+//Lecture: operators
+var now = 2017;
+var birthYear = 2017 - 26;
+birthYear = now - 26 * 2;
+//2017 - 52
+//1965
+
+console.log(birthYear);
+
+var ageJohn = 30;
+var ageMark = 30;
+
+//Parentheses have higher operator precedence than arithmetic operators
+//Multiplication, division, and remainder (modulo) have higher operator precendence than addition and subtraction.
+ageJohn = (3 + 5) * 4 - 6;
+//multiple equal signs (assignment) have operator precedence from right-to-left
+//ageJohn = ageMark = 26;
+
+//same as ageJohn = ageJohn + 1;
+ageJohn++
+console.log(ageJohn);
+
+//same as ageMark = ageMark * 2;
+ageMark *= 2;
+console.log(ageMark);
