@@ -205,7 +205,7 @@ if (scoreJohn > scoreMike && scoreJohn > scoreMary) {
 
 ////////////////////////////////////////////////////////////////////////////////
 // Lecture: functions
-
+/*
 function calculateAge(yearOfBirth) {
   var age = 2017 - yearOfBirth;
   return age;
@@ -222,11 +222,36 @@ function yearsUntilRetirement(name, year) {
 
   if (retirement >= 0) {
   console.log(name + ' retires in ' + retirement + ' years.');
-} else {
+  } else {
   console.log(name + ' is already retired.');
-}
+  }
 }
 
 yearsUntilRetirement('John', 1990);
 yearsUntilRetirement('Mike', 1969);
 yearsUntilRetirement('Mary', 1948);
+*/
+
+////////////////////////////////////////////////////////////////////////////////
+//Lecture: statements and expressions
+
+//function statement
+function someFun(par) {
+  //code
+}
+
+//function expression
+var someFun = function(par) {
+  //code
+}
+
+//a statement performs an action
+//statements
+if (x === 5) {
+  //do something
+}
+
+//an expression produces a value (an outcome)
+//expressions
+3 + 4;
+var x = 3;
