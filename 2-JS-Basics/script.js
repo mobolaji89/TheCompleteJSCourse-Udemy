@@ -234,7 +234,7 @@ yearsUntilRetirement('Mary', 1948);
 
 ////////////////////////////////////////////////////////////////////////////////
 //Lecture: statements and expressions
-
+/*
 //function statement
 function someFun(par) {
   //code
@@ -255,3 +255,33 @@ if (x === 5) {
 //expressions
 3 + 4;
 var x = 3;
+*/
+
+////////////////////////////////////////////////////////////////////////////////
+//Lecture: arrays
+
+var names = ['John', 'Jane', 'Mark'];
+var years = new Array(1990, 1969, 1948);
+
+console.log(names[2]);
+names[1] = 'Ben';
+console.log(names);
+
+var john = ['John', 'Smith', 1990, 'designer', false];
+//adds an element to end of array
+john.push('blue');
+//adds an element to beginning of array
+john.unshift('Mr.');
+//removes last element from array
+john.pop();
+//removes first element from array
+john.shift();
+
+//returns position of value(element) we pass into it
+//alert(john.indexOf('Smith'));
+
+if (john.indexOf('teacher') === -1) {
+  console.log('John is NOT a teacher.');
+}
+
+console.log(john);
