@@ -166,6 +166,7 @@ John and a friend invented a simple game where the player with the highest value
 */
 
 //SOLUTION:
+/*
 var heightJohn = 160;
 var ageJohn = 20;
 
@@ -178,7 +179,7 @@ var ageMary = 22;
 var scoreJohn = heightJohn + 5 * ageJohn;
 var scoreMike = heightMike + 5 * ageMike;
 var scoreMary = heightMary + 5 * ageMary;
-
+*/
 /*
 //First example
 if (scoreJohn > scoreMike) {
@@ -189,7 +190,7 @@ if (scoreJohn > scoreMike) {
   console.log('there is a draw.');
 }
 */
-
+/*
 //Second example
 if (scoreJohn > scoreMike && scoreJohn > scoreMary) {
   console.log('John wins the game with ' + scoreJohn + ' points!');
@@ -200,3 +201,32 @@ if (scoreJohn > scoreMike && scoreJohn > scoreMary) {
 } else {
   console.log('It\'s a draw!');
 }
+*/
+
+////////////////////////////////////////////////////////////////////////////////
+// Lecture: functions
+
+function calculateAge(yearOfBirth) {
+  var age = 2017 - yearOfBirth;
+  return age;
+}
+
+var ageJohn = calculateAge(1990);
+var ageMike = calculateAge(1969);
+var ageMary = calculateAge(1948);
+//console.log(ageMary);
+
+function yearsUntilRetirement(name, year) {
+  var age = calculateAge(year);
+  var retirement = 65 - age;
+
+  if (retirement >= 0) {
+  console.log(name + ' retires in ' + retirement + ' years.');
+} else {
+  console.log(name + ' is already retired.');
+}
+}
+
+yearsUntilRetirement('John', 1990);
+yearsUntilRetirement('Mike', 1969);
+yearsUntilRetirement('Mary', 1948);
