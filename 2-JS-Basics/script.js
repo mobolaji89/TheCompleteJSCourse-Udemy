@@ -289,7 +289,7 @@ console.log(john);
 
 ////////////////////////////////////////////////////////////////////////////////
 //Lecture: objects
-
+/*
 //An object literal is a list of zero or more pairs of property names and associated values of an object, enclosed in curly braces ({})
 var john =  {
   name: 'John',
@@ -323,3 +323,50 @@ jane['job'] = 'retired';
 jane['isMarried'] = true;
 
 console.log(jane);
+*/
+
+////////////////////////////////////////////////////////////////////////////////
+// Lecture: objects and methods
+
+//version1
+/*
+var john =  {
+  name: 'John',
+  lastName: 'Smith',
+  yearOfBirth: 1990,
+  job: 'teacher',
+  isMarried: false,
+  family: ['Jane', 'Mark', 'Bob'],
+
+  calculateAge: function(yearOfBirth) {
+    return 2016 - yearOfBirth;
+  }
+
+  //refactor
+  calculateAge: function() {
+    return 2016 - this.yearOfBirth;
+  }
+};
+
+console.log(john.family);
+console.log(john.family[2]);
+
+//console.log(john.calculateAge(1990));
+console.log(john.calculateAge());
+*/
+
+//version2
+var john =  {
+  name: 'John',
+  lastName: 'Smith',
+  yearOfBirth: 1990,
+  job: 'teacher',
+  isMarried: false,
+  family: ['Jane', 'Mark', 'Bob'],
+  calculateAge: function() {
+    this.age = 2016 - this.yearOfBirth;
+  }
+};
+
+john.calculateAge();
+console.log(john);
