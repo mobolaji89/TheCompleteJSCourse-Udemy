@@ -354,7 +354,7 @@ console.log(john.family[2]);
 //console.log(john.calculateAge(1990));
 console.log(john.calculateAge());
 */
-
+/*
 //version2
 var john =  {
   name: 'John',
@@ -370,3 +370,48 @@ var john =  {
 
 john.calculateAge();
 console.log(john);
+*/
+
+////////////////////////////////////////////////////////////////////////////////
+// Lecture: loops
+
+//for loops
+/*
+for (var i = 0; i < 10; i++) {
+  console.log(i);
+}
+*/
+var names = ['John', 'Jane', 'Mary', 'Mark', 'Bob'];
+/*
+for (var i = 0; i < names.length; i++) {
+  console.log(names[i]);
+}
+
+for (var i = names.length - 1; i >= 0; i--) {
+  console.log(names[i]);
+}
+*/
+
+//while loop
+var i = 0;
+while (i < names.length) {
+  console.log(names[i]);
+  i++;
+}
+
+//loop break example
+for (var i = 0; i < names.length; i++) {
+  console.log(names[i]);
+  if (i === 3) {
+    break;
+  }
+}
+
+//loop continue example
+//3 is skipped
+for (var i = 0; i < names.length; i++) {
+  if (i === 3) {
+    continue;
+  }
+  console.log(i);
+}
