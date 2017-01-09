@@ -2,7 +2,7 @@
 // Lecture: Hoisting
 
 //Hoisting allows us to use function declarations before we actually declare them in our code
-
+/*
 //functions
 calculateAge(1960);
 
@@ -33,14 +33,7 @@ function foo() {
 foo();
 //prints 23
 console.log(age);
-
-
-
-
-
-
-
-
+*/
 ///////////////////////////////////////
 // Lecture: Scoping
 
@@ -66,7 +59,7 @@ function first() {
 
 // Example to show the differece between execution stack and scope chain
 
-/*
+
 var a = 'Hello!';
 first();
 
@@ -79,12 +72,12 @@ function first() {
         third()
     }
 }
-
+//can't access var b or c because of scope
 function third() {
     var d = 'John';
-    console.log(a + b + c + d);
+    console.log(a + d);
 }
-*/
+
 
 
 
