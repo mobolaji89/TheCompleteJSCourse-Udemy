@@ -11,23 +11,12 @@ GAME RULES:
 
 var scores, roundScore, activePlayer;
 
-scores = [0,0];
-roundScore = 0;
-activePlayer = 0;
+init();
 
 //document.querySelector('#current-' + activePlayer).textContent = dice;
 //document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + '</em>';
 //var x = document.querySelector('#score-0').textContent;
 //console.log(x);
-
-//sets dice display property to none
-document.querySelector('.dice').style.display = 'none';
-
-//set score text to 0
-document.getElementById('score-0').textContent = '0';
-document.getElementById('score-1').textContent = '0';
-document.getElementById('current-0').textContent = '0';
-document.getElementById('current-0').textContent = '0';
 
 //Events: Notifications that are sent to notify the code that something happened on the webpage.
 //Examples: clicking a button, resizing a window, scrolling down, or pressing a key.
@@ -105,3 +94,29 @@ function nextPlayer() {
   //when one player rolls a 1 we want to hide the dice again
   document.querySelector('.dice').style.display = 'none';
 };
+
+//when someone clicks the new game button then call the init function
+document.querySelector('.btn-new').addEventListener('click', init);
+
+//Make code more DRY with init function for new game
+function init() {
+  scores = [0,0];
+  activePlayer = 0;
+  roundScore = 0;
+
+  //sets dice display property to none
+  document.querySelector('.dice').style.display = 'none';
+
+  //set score text to 0
+  document.getElementById('score-0').textContent = '0';
+  document.getElementById('score-1').textContent = '0';
+  document.getElementById('current-0').textContent = '0';
+  document.getElementById('current-1').textContent = '0';
+  document.getElementById('name-0').textContent = 'Player 1';
+  document.getElementById('name-1').textContent = 'Player 2';
+  document.querySelector('.player-0-panel').classList.remove('winner');
+  document.querySelector('.player-1-panel').classList.remove('winner');
+  document.querySelector('.player-0-panel').classList.remove('active');
+  document.querySelector('.player-1-panel').classList.remove('active');
+  document.querySelector('.player-0-panel').classList.add('active');
+}
