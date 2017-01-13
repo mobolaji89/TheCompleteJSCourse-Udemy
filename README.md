@@ -14,6 +14,8 @@
 
   - This section contains a Pig Game (dice) project, where I practice DOM Manipulation and Event Handling. First player to 100 points wins!
   
+  ![Alt Text](https://github.com/mobolaji89/TheCompleteJSCourse-Udemy/blob/master/4-DOM-Pig-Game/piggame.gif)
+  
 ###In progress:  
   
 * **Section 5: Advanced JavaScript: Objects and Functions**
