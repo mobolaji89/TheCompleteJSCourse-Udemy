@@ -154,7 +154,7 @@ console.log(rates);
 */
 
 //Lecture: Functions returning functions
-
+/*
 function interviewQuestion(job) {
   if (job === 'designer') {
     return function(name) {
@@ -178,4 +178,32 @@ teacherQuestion('John');
 designerQuestion('John');
 designerQuestion('Jane')
 
+//alternate way of calling the function
 interviewQuestion('teacher')('Mark');
+*/
+
+////////////////////////////////////////////////////////////////////////////////
+// Lecture: IIFE - Immediately Invoked Function Expressions
+/*
+function game()  {
+  var score = Math.random() * 10;
+  console.log(score >= 5);
+}
+
+game();
+*/
+
+//IIFE
+//allow us to maintain data privacy
+(function ()  {
+  var score = Math.random() * 10;
+  console.log(score >= 5);
+})();
+
+//console.log(score);
+//Uncaught ReferenceError: score is not defined
+
+(function (goodLuck)  {
+  var score = Math.random() * 10;
+  console.log(score >= 5 - goodLuck);
+})(5);
