@@ -72,7 +72,7 @@ var jane = Object.create(personProto, {
 //Variables containing primitives actually hold data inside the variable itself
 
 //Variables associated with objects do not actually contain the object, but instead contain a reference to the place in memory where the object is stored. A variable declared as an object does not have the real copy of the object; it just points to that object.
-
+/*
 //Primitives
 var a = 23;
 var b = a;
@@ -113,3 +113,41 @@ console.log(obj.city);
 
 //variable a is a primitive that remains unchanged
 //b is a reference that points to the object, so when we change the object inside of the function, it is still reflected outside of the function
+*/
+
+////////////////////////////////////////////////////////////////////////////////
+//Lecture: Passing functions as arguments
+
+var years = [1990, 1965, 1937, 2005, 1998];
+
+function arrayCalc(arr, fn) {
+  var arrRes = [];
+  for (var i = 0; i < arr.length; i++) {
+    arrRes.push(fn(arr[i]));
+  }
+  return arrRes;
+}
+
+function calculateAge(el) {
+  return 2016 - el;
+}
+
+function isFullAge(el){
+  return el >= 18;
+}
+
+function maxHeartRate(el) {
+  if (el >= 18 && el <= 81) {
+    return Math.round(206.9 - (0.67 * el));
+  } else {
+    return -1;
+  }
+}
+
+var ages = arrayCalc(years, calculateAge);
+var fullAges = arrayCalc(ages, isFullAge);
+var rates = arrayCalc(ages, maxHeartRate);
+
+console.log(ages);
+console.log(fullAges);
+console.log(rates);
