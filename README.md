@@ -16,9 +16,12 @@
   
   ![Alt Text](https://github.com/mobolaji89/TheCompleteJSCourse-Udemy/blob/master/4-DOM-Pig-Game/piggame.gif)
   
+* **Section 5: Advanced JavaScript: Objects and Functions**
+
+  - Here, I dive deeper into more advance JavaScript concepts such as function constructors, prototype chains, closures, calling and binding, etc.
+  
 ###In progress:  
   
-* **Section 5: Advanced JavaScript: Objects and Functions**
 * **Section 6: The Budget App Project**
 * **Section 7: Get Ready for the Future: ES6 / ES2015**
 
