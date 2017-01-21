@@ -1,10 +1,36 @@
 // BUDGET CONTROLLER
 var budgetController = (function() {
 
+  //function constructor for expense
+  var Expense = function(id, description, value) {
+    this.id = id;
+    this.description = description;
+    this.value = value;
+  };
+
+  //function constructor for income
+  var Income = function(id, description, value) {
+    this.id = id;
+    this.description = description;
+    this.value = value;
+  };
+
+  var data = {
+    allItems: {
+      exp: [],
+      inc = []
+    }
+    totals: {
+      exp: 0,
+      inc: 0
+    }
+  };
+
 })();
 
 // UI CONTROLLER
 var UIController = (function() {
+
   var DOMstrings = {
     inputType: '.add__type',
     inputDescription: '.add__description',
@@ -25,10 +51,12 @@ var UIController = (function() {
       return DOMstrings;
     }
   };
+
 })();
 
 // APPLICATION CONTROLLER
 var controller = (function (budgetCtrl, UICtrl) {
+
   var setupEventListeners = function() {
     var DOM = UICtrl.getDOMstrings();
 
