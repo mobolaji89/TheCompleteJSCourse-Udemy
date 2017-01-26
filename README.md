@@ -24,7 +24,7 @@
 
   - This section contains a complex Budget App Project that puts everything together I've learned so far about JavaScript in this course. This includes understanding module implementation within JavaScript, System Design/Architechture, creating an initialization function, more advanced DOM Manipulation with vanilla JavaScript, Event Listeners and Event Delegation, etc.
   
-    ![Alt Text](https://github.com/mobolaji89/TheCompleteJSCourse-Udemy/blob/master/6-Budgety/Budgety.gif)
+  ![Alt Text](https://github.com/mobolaji89/TheCompleteJSCourse-Udemy/blob/master/6-Budgety/Budgety.gif)
   
 ###In progress:  
 
