@@ -6,8 +6,9 @@ var name5 = 'Jane Smith';
 var age5 = 23;
 name5 = 'Jane Miller';
 console.log(name5);
-
+*/
 // ES6
+/*
 const name6 = 'Jane Smith';
 let age6 = 23;
 name6 = 'Jane Miller';
@@ -137,7 +138,7 @@ console.log(`${firstName} `.repeat(5)); //John John John John John
 
 ////////////////////////////////////////////////////////////////////////////////
 // Lecture: Arrow Functions
-
+/*
 const years = [1990, 1965, 1982, 1927];
 
 // ES5
@@ -159,3 +160,81 @@ ages6 = years.map((el,  index) =>{
   return `Age element ${index + 1}: ${age}.`
 })
 console.log(ages6);
+*/
+
+////////////////////////////////////////////////////////////////////////////////
+// Lecture: Arrow Functions 2
+
+//Arrow functions do not receive their own this keyword. They simply use the this keyword of the function they are written in, and so we say they have a lexical this variable.
+
+// ES5
+// We declare self as a workaround that points to this, so that we can use it in the rest of the function...
+// because inside the function we don't have access to the box5 object
+var box5 = {
+  color: 'green',
+  position: 1,
+  clickMe: function() {
+    var self = this;
+    document.querySelector('.green').addEventListener('click', function(){
+      var str = 'This is box number ' + self.position + ' and it is ' + self.color;
+      alert(str);
+    });
+  }
+}
+//box5.clickMe();
+
+// ES6
+//the function within box6 shares the this keyword with it's surrounding box6 function (this points to box6)
+const box6 = {
+  color: 'green',
+  position: 1,
+  clickMe: function() {
+    document.querySelector('.green').addEventListener('click', () => {
+      var str = 'This is box number ' + this.position + ' and it is ' + this.color;
+      alert(str);
+    });
+  }
+}
+//box6.clickMe();
+
+/*
+const box66 = {
+  color: 'green',
+  position: 1,
+  clickMe => () {
+    document.querySelector('.green').addEventListener('click', () => {
+      var str = 'This is box number ' + this.position + ' and it is ' + this.color;
+      alert(str);
+    });
+  }
+}
+box66.clickMe();
+*/
+
+function Person(name) {
+  this.name = name;
+}
+
+//ES5
+Person.prototype.myFriends5 = function(friends) {
+  var arr = friends.map(function(el) {
+    return this.name + ' is friends with ' + el;
+  }.bind(this));
+  console.log(arr);
+}
+
+var friends = ['Bob', 'Jane', 'Mark'];
+new Person('John').myFriends5(friends);
+
+//["John is friends with Bob", "John is friends with Jane", "John is friends with Mark"]
+
+// ES6
+Person.prototype.myFriends6 = function(friends) {
+  var arr = friends.map(el => `${this.name} is friends with ${el}`
+  );
+  console.log(arr);
+}
+
+new Person('Mike').myFriends6(friends);
+
+//["Mike is friends with Bob", "Mike is friends with Jane", "Mike is friends with Mark"]
