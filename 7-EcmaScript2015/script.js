@@ -166,7 +166,7 @@ console.log(ages6);
 // Lecture: Arrow Functions 2
 
 //Arrow functions do not receive their own this keyword. They simply use the this keyword of the function they are written in, and so we say they have a lexical this variable.
-
+/*
 // ES5
 // We declare self as a workaround that points to this, so that we can use it in the rest of the function...
 // because inside the function we don't have access to the box5 object
@@ -182,7 +182,8 @@ var box5 = {
   }
 }
 //box5.clickMe();
-
+*/
+/*
 // ES6
 //the function within box6 shares the this keyword with it's surrounding box6 function (this points to box6)
 const box6 = {
@@ -196,6 +197,7 @@ const box6 = {
   }
 }
 //box6.clickMe();
+*/
 
 /*
 const box66 = {
@@ -211,6 +213,7 @@ const box66 = {
 box66.clickMe();
 */
 
+/*
 function Person(name) {
   this.name = name;
 }
@@ -225,9 +228,9 @@ Person.prototype.myFriends5 = function(friends) {
 
 var friends = ['Bob', 'Jane', 'Mark'];
 new Person('John').myFriends5(friends);
-
+*/
 //["John is friends with Bob", "John is friends with Jane", "John is friends with Mark"]
-
+/*
 // ES6
 Person.prototype.myFriends6 = function(friends) {
   var arr = friends.map(el => `${this.name} is friends with ${el}`
@@ -238,3 +241,42 @@ Person.prototype.myFriends6 = function(friends) {
 new Person('Mike').myFriends6(friends);
 
 //["Mike is friends with Bob", "Mike is friends with Jane", "Mike is friends with Mark"]
+*/
+
+////////////////////////////////////////////////////////////////////////////////
+// Lecture: Destructuring
+/*
+// ES5
+var john = ['John', 26];
+var name = john[0];
+var age = john[1];
+*/
+
+// ES6
+const [name, age] = ['John', 26];
+console.log(name); //John
+console.log(age); //26
+
+//Destructuring with an object
+const obj = {
+  firstName: 'John',
+  lastName: 'Smith'
+}
+
+const {firstName, lastName} = obj;
+console.log(firstName); //John
+console.log(lastName); //Smith
+
+const {firstName: a, lastName: b} = obj;
+console.log(a); //John
+console.log(b); //Smith
+
+//Destructuring with a function
+function calcAgeRetirement(year) {
+  const age = new Date().getFullYear() - year;
+  return [age, 65 - age];
+}
+
+const [age2, retirement] = calcAgeRetirement(1990);
+console.log(age2); //27
+console.log(retirement); //38
