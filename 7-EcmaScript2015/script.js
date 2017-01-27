@@ -21,6 +21,7 @@ console.log(name6); //Uncaught TypeError: Assignment to constant variable.
   //A block scope is any code wrapped in between curly braces({ }).
 
 // ES5
+/*
 function driversLicense5(passedTest) {
   if (passedTest) {
     //console.log(firstName) //undefined
@@ -32,8 +33,9 @@ function driversLicense5(passedTest) {
 }
 
 driversLicense5(true);
-
+*/
 //ES6
+/*
 function driversLicense6(passedTest) {
 
   //console.log(firstName); //Uncaught ReferenceError: firstName is not defined(...)
@@ -49,7 +51,7 @@ function driversLicense6(passedTest) {
 }
 
 driversLicense6(true);
-
+*/
 // var versus let
 //the value of 23 will be overwritten
 /*
@@ -70,7 +72,7 @@ console.log(i);
 */
 
 //both 'i' are seperate variables, because let is block scoped
-
+/*
 let i = 23;
 
 for (let i = 0; i < 5; i++) {
@@ -85,3 +87,24 @@ console.log(i);
 //3
 //4
 //23
+*/
+
+////////////////////////////////////////////////////////////////////////////////
+//Lecture: Blocks and IIFEs
+
+// ES6
+{
+  const a = 1;
+  let b = 2;
+  var c = 3;
+}
+
+//console.log(a + b); //Uncaught ReferenceError: a is not defined
+//console.log(c); //prints 3 - var declerations are not block scoped, they are function scoped.
+
+// ES6
+(function() {
+  var c = 3;
+})();
+
+//console.log(c); //Uncaught ReferenceError: c is not defined
