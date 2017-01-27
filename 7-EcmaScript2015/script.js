@@ -90,21 +90,45 @@ console.log(i);
 */
 
 ////////////////////////////////////////////////////////////////////////////////
-//Lecture: Blocks and IIFEs
-
+// Lecture: Blocks and IIFEs
+/*
 // ES6
 {
   const a = 1;
   let b = 2;
   var c = 3;
 }
-
+*/
 //console.log(a + b); //Uncaught ReferenceError: a is not defined
 //console.log(c); //prints 3 - var declerations are not block scoped, they are function scoped.
 
-// ES6
+// ES5
+/*
 (function() {
   var c = 3;
 })();
-
+*/
 //console.log(c); //Uncaught ReferenceError: c is not defined
+
+////////////////////////////////////////////////////////////////////////////////
+// Lecture: Strings
+let firstName = 'John';
+let lastName = 'Smith';
+const yearOfBirth = 1990;
+function calculateAge(year) {
+  return 2017 - year;
+}
+
+// ES5
+console.log('This is ' + firstName + ' ' + lastName + '. He was born in ' + yearOfBirth + '. Today, he is ' + calculateAge(yearOfBirth) + ' years old.');
+
+// ES6
+//Template literal
+console.log(`This is ${firstName} ${lastName}. He was born in ${yearOfBirth}. Today, he is ${calculateAge(yearOfBirth)} years old.`);
+
+const n = `${firstName} ${lastName}`;
+console.log(n.startsWith('J')); //true
+console.log(n.endsWith('th')); //true
+console.log(n.includes(' ')); //true
+console.log(firstName.repeat(5)); //JohnJohnJohnJohnJohn
+console.log(`${firstName} `.repeat(5)); //John John John John John
