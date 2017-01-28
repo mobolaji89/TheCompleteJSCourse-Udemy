@@ -166,7 +166,7 @@ console.log(ages6);
 // Lecture: Arrow Functions 2
 
 //Arrow functions do not receive their own this keyword. They simply use the this keyword of the function they are written in, and so we say they have a lexical this variable.
-
+/*
 // ES5
 // We declare self as a workaround that points to this, so that we can use it in the rest of the function...
 // because inside the function we don't have access to the box5 object
@@ -182,7 +182,8 @@ var box5 = {
   }
 }
 //box5.clickMe();
-
+*/
+/*
 // ES6
 //the function within box6 shares the this keyword with it's surrounding box6 function (this points to box6)
 const box6 = {
@@ -196,6 +197,7 @@ const box6 = {
   }
 }
 //box6.clickMe();
+*/
 
 /*
 const box66 = {
@@ -211,6 +213,7 @@ const box66 = {
 box66.clickMe();
 */
 
+/*
 function Person(name) {
   this.name = name;
 }
@@ -225,9 +228,9 @@ Person.prototype.myFriends5 = function(friends) {
 
 var friends = ['Bob', 'Jane', 'Mark'];
 new Person('John').myFriends5(friends);
-
+*/
 //["John is friends with Bob", "John is friends with Jane", "John is friends with Mark"]
-
+/*
 // ES6
 Person.prototype.myFriends6 = function(friends) {
   var arr = friends.map(el => `${this.name} is friends with ${el}`
@@ -238,3 +241,186 @@ Person.prototype.myFriends6 = function(friends) {
 new Person('Mike').myFriends6(friends);
 
 //["Mike is friends with Bob", "Mike is friends with Jane", "Mike is friends with Mark"]
+*/
+
+////////////////////////////////////////////////////////////////////////////////
+// Lecture: Destructuring
+/*
+// ES5
+var john = ['John', 26];
+var name = john[0];
+var age = john[1];
+*/
+/*
+// ES6
+const [name, age] = ['John', 26];
+console.log(name); //John
+console.log(age); //26
+
+//Destructuring with an object
+const obj = {
+  firstName: 'John',
+  lastName: 'Smith'
+}
+
+const {firstName, lastName} = obj;
+console.log(firstName); //John
+console.log(lastName); //Smith
+
+const {firstName: a, lastName: b} = obj;
+console.log(a); //John
+console.log(b); //Smith
+
+//Destructuring with a function
+function calcAgeRetirement(year) {
+  const age = new Date().getFullYear() - year;
+  return [age, 65 - age];
+}
+
+const [age2, retirement] = calcAgeRetirement(1990);
+console.log(age2); //27
+console.log(retirement); //38
+*/
+
+////////////////////////////////////////////////////////////////////////////////
+// Lecture: Arrays
+
+//const boxes = document.querySelectorAll('.box');
+
+/*
+// ES5
+var boxesArr5 = Array.prototype.slice.call(boxes);
+boxesArr5.forEach(function(cur) {
+  cur.style.backgroundColor = 'dodgerblue';
+});
+*/
+/*
+// ES6
+const boxesArr6 = Array.from(boxes);
+//boxesArr6.forEach(cur => cur.style.backgroundColor = 'dodgerblue');
+
+//alternate
+Array.from(boxes).forEach(cur => cur.style.backgroundColor = 'dodgerblue');
+*/
+/*
+// ES5
+for(var i = 0; i < boxesArr5.length; i++) {
+  if(boxesArr5[i].className === 'box blue') {
+    //continue;
+    break;
+  }
+
+  boxesArr5[i].textContent = 'I changed to blue!'
+}
+*/
+/*
+// ES6
+for (const cur of boxesArr6) {
+  if (cur.className === 'box blue') {
+    //another option: if (cur.className.includes('blue'))
+    continue;
+  }
+  cur.textContent = 'I changed to blue';
+}
+*
+/*
+// ES5
+var ages = [12, 17, 8, 21, 14, 11];
+
+var full = ages.map(function(cur) {
+  return cur >= 18;
+});
+
+console.log(full);
+
+console.log(full.indexOf(true)); //3
+console.log(ages[full.indexOf(true)]); //21
+*/
+/*
+//ES6
+console.log(ages.findIndex(cur => cur >= 18)); //3
+console.log(ages.find(cur => cur >= 18)); //21
+*/
+
+////////////////////////////////////////////////////////////////////////////////
+//Lecture: Spread operator
+/*
+function addFourAges(a, b, c, d, e) {
+  return a + b + c + d;
+}
+
+var sum1 = addFourAges(18, 30, 12, 21);
+console.log(sum1); //81
+
+// ES5
+var ages = [18, 20, 12, 31];
+var sum2 = addFourAges.apply(null, ages);
+console.log(sum2); //81
+*/
+/*
+// ES6
+const sum3 = addFourAges(...ages);
+//... means to expand an array into it's components
+console.log(sum3); //81
+
+const familySmith = ['John', 'Jane', 'Mark'];
+const familyMiller = ['Mary', 'Bob', 'Ann'];
+const bigFamily = [...familySmith, ...familyMiller];
+console.log(bigFamily); //["John", "Jane", "Mark", "Mary", "Bob", "Ann"]
+
+
+const h = document.querySelector('h1');
+const boxes = document.querySelectorAll('.box');
+const all = [h, ...boxes];
+
+Array.from(all).forEach(cur => cur.style.color = 'purple');
+*/
+
+////////////////////////////////////////////////////////////////////////////////
+//Lecture: Rest parameters
+/*
+// ES5
+function isFullAge5() {
+  //console.log(arguments); //[1990, 1999, 1965]
+  //arguments is a special JS variable that we have access to in all functions
+  var argsArr = Array.prototype.slice.call(arguments);
+
+  argsArr.forEach(function(cur) {
+    console.log((2017 - cur) >= 18);
+  })
+}
+
+isFullAge5(1990, 1999, 1965);
+isFullAge5(1990, 1999, 1956, 2017, 1987);
+*/
+/*
+// ES6
+function isFullAge6(...years) {
+  //console.log(years);
+  years.forEach(cur => console.log((2016 - cur) >= 18));
+}
+
+isFullAge6(1990, 1999, 1965);
+*/
+
+// ES5
+function isFullAge5(limit) {
+  //console.log(arguments); //[1990, 1999, 1965]
+  //arguments is a special JS variable that we have access to in all functions
+  var argsArr = Array.prototype.slice.call(arguments, 1);
+  console.log(argsArr);
+  argsArr.forEach(function(cur) {
+    console.log((2017 - cur) >= limit);
+  })
+}
+
+//isFullAge5(21, 1990, 1999, 1965);
+//isFullAge5(1990, 1999, 1956, 2017, 1987);
+
+// ES6
+function isFullAge6(limit, ...years) {
+  //console.log(years);
+  years.forEach(cur => console.log((2016 - cur) >= limit));
+}
+
+isFullAge6(16, 1990, 1999, 1965, 2017, 1987);
