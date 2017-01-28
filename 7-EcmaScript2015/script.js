@@ -344,7 +344,7 @@ console.log(ages.find(cur => cur >= 18)); //21
 
 ////////////////////////////////////////////////////////////////////////////////
 //Lecture: Spread operator
-
+/*
 function addFourAges(a, b, c, d, e) {
   return a + b + c + d;
 }
@@ -356,7 +356,8 @@ console.log(sum1); //81
 var ages = [18, 20, 12, 31];
 var sum2 = addFourAges.apply(null, ages);
 console.log(sum2); //81
-
+*/
+/*
 // ES6
 const sum3 = addFourAges(...ages);
 //... means to expand an array into it's components
@@ -373,3 +374,53 @@ const boxes = document.querySelectorAll('.box');
 const all = [h, ...boxes];
 
 Array.from(all).forEach(cur => cur.style.color = 'purple');
+*/
+
+////////////////////////////////////////////////////////////////////////////////
+//Lecture: Rest parameters
+/*
+// ES5
+function isFullAge5() {
+  //console.log(arguments); //[1990, 1999, 1965]
+  //arguments is a special JS variable that we have access to in all functions
+  var argsArr = Array.prototype.slice.call(arguments);
+
+  argsArr.forEach(function(cur) {
+    console.log((2017 - cur) >= 18);
+  })
+}
+
+isFullAge5(1990, 1999, 1965);
+isFullAge5(1990, 1999, 1956, 2017, 1987);
+*/
+/*
+// ES6
+function isFullAge6(...years) {
+  //console.log(years);
+  years.forEach(cur => console.log((2016 - cur) >= 18));
+}
+
+isFullAge6(1990, 1999, 1965);
+*/
+
+// ES5
+function isFullAge5(limit) {
+  //console.log(arguments); //[1990, 1999, 1965]
+  //arguments is a special JS variable that we have access to in all functions
+  var argsArr = Array.prototype.slice.call(arguments, 1);
+  console.log(argsArr);
+  argsArr.forEach(function(cur) {
+    console.log((2017 - cur) >= limit);
+  })
+}
+
+//isFullAge5(21, 1990, 1999, 1965);
+//isFullAge5(1990, 1999, 1956, 2017, 1987);
+
+// ES6
+function isFullAge6(limit, ...years) {
+  //console.log(years);
+  years.forEach(cur => console.log((2016 - cur) >= limit));
+}
+
+isFullAge6(16, 1990, 1999, 1965, 2017, 1987);
