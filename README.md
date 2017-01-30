@@ -4,7 +4,7 @@
 
 * **Section 2: JavaScript Language Basics**
 
-  - Here, I practice core the fundamentals of JavaScript syntax
+  - Here, I practice the core fundamentals of JavaScript syntax
   
 * **Section 3: How JavaScript Works Behind the Scenes**
   
