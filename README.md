@@ -24,9 +24,8 @@
 
   - This section contains a complex Budget App Project that puts everything together I've learned so far about JavaScript in this course. This includes understanding module implementation within JavaScript, System Design/Architechture, creating an initialization function, more advanced DOM Manipulation with vanilla JavaScript, Event Listeners and Event Delegation, etc.
   
-  ![Alt Text](https://github.com/mobolaji89/TheCompleteJSCourse-Udemy/blob/master/6-Budgety/Budgety.gif)
-  
-###In progress:  
+  ![Alt Text](https://github.com/mobolaji89/TheCompleteJSCourse-Udemy/blob/master/6-Budgety/Budgety.gif) 
 
 * **Section 7: Get Ready for the Future: ES6 / ES2015**
-
+  
+  - Here, I practice the changes made, and differences between ES6 (ES2015) and ES5 syntax.
